@@ -98,15 +98,9 @@ class Query:
         return [Post(**p) for p in POSTS]
 
 
-# Create schema with complexity extension
-# TRY THESE LIMITS:
-# - max_complexity=50  (allows most queries)
-# - max_complexity=20  (blocks deeply nested queries)
-# - max_complexity=5   (blocks almost everything - great for demo!)
-
 extension = build_complexity_extension(
     estimator=SimpleEstimator(complexity=1),
-    max_complexity=50  # <-- Change this to test!
+    max_complexity=10
 )
 
 schema = strawberry.Schema(
@@ -227,25 +221,10 @@ def landing_page():
                 <a href="https://github.com/Checho3388/graphql-complexity" class="btn" style="background: #333;">View on GitHub</a>
             </div>
 
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-value">50</div>
-                    <div class="stat-label">Max Complexity</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">5.5k+</div>
-                    <div class="stat-label">Downloads</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">Python</div>
-                </div>
-            </div>
-
             <h2>Try These Queries</h2>
 
             <div class="example">
-                <h3>✅ Simple Query (Low Complexity)</h3>
+                <h3>✅ Simple Query (Low Complexity - Below limit of 10)</h3>
                 <p>This query should pass complexity validation:</p>
                 <pre><code>query SimpleQuery {
   hello
@@ -257,7 +236,7 @@ def landing_page():
             </div>
 
             <div class="example">
-                <h3>⚠️ Nested Query (Medium Complexity)</h3>
+                <h3>⚠️ Nested Query (Medium Complexity - Below limit of 10)</h3>
                 <p>This query has moderate complexity:</p>
                 <pre><code>query NestedQuery {
   users {
@@ -272,7 +251,7 @@ def landing_page():
             </div>
 
             <div class="example">
-                <h3>❌ Deeply Nested (High Complexity)</h3>
+                <h3>❌ Deeply Nested (High Complexity - Above limit of 10)</h3>
                 <p>This query will likely exceed the limit:</p>
                 <pre><code>query DeepNesting {
   users {
@@ -295,7 +274,6 @@ def landing_page():
     }
   }
 }</code></pre>
-                <p><em>Try lowering max_complexity to 20 in the code to block this!</em></p>
             </div>
 
             <h2>How It Works</h2>
