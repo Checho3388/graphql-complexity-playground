@@ -1,29 +1,22 @@
+# `graphql-complexity` Playground 🚀
+
+A live, interactive environment to explore the [**graphql-complexity**](https://github.com/Checho3388/graphql-complexity) library in action.
+
+This playground runs a [FastAPI](https://fastapi.tiangolo.com/) server integrated with [Strawberry GraphQL](https://strawberry.rocks/) to demonstrate how to implement cost-based analysis for your GraphQL API.
+
 ---
-title: FastAPI
-description: A FastAPI server
-tags:
-  - fastapi
-  - hypercorn
-  - python
+
+## ⚡ Live Demo
+No installation required. You can access the hosted GraphiQL interface directly:
+
+👉 **[Launch Playground on Railway](https://graphql-complexity-playground-production.up.railway.app/)**
+
 ---
 
-# FastAPI Example
+## 🧐 What is this for?
+In GraphQL, a single query can be deeply nested or request a massive amount of data, potentially leading to "Denial of Service" (DoS) scenarios. 
 
-This example starts up a [FastAPI](https://fastapi.tiangolo.com/) server.
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/-NvLj4?referralCode=CRJ8FE)
-## ✨ Features
-
-- FastAPI
-- [Hypercorn](https://hypercorn.readthedocs.io/)
-- Python 3
-
-## 💁‍♀️ How to use
-
-- Clone locally and install packages with pip using `pip install -r requirements.txt`
-- Run locally using `hypercorn main:app --reload`
-
-## 📝 Notes
-
-- To learn about how to use FastAPI with most of its features, you can visit the [FastAPI Documentation](https://fastapi.tiangolo.com/tutorial/)
-- To learn about Hypercorn and how to configure it, read their [Documentation](https://hypercorn.readthedocs.io/)
+`graphql-complexity` protects your server by:
+1.  **Parsing** the incoming query.
+2.  **Calculating** a "cost" based on field depth and multipliers.
+3.  **Rejecting** the query before execution if it exceeds your defined limit.
