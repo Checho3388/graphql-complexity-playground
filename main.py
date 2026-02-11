@@ -276,22 +276,12 @@ def landing_page():
 }</code></pre>
             </div>
 
-            <h2>How It Works</h2>
-            <p>The <code>graphql-complexity</code> library analyzes each GraphQL query and calculates a complexity score. Queries that exceed the configured limit are rejected before execution, preventing expensive operations from overloading your API.</p>
-
-            <h2>Installation</h2>
-            <pre><code>pip install graphql-complexity
-
-# For Strawberry integration
-pip install graphql-complexity[strawberry-graphql]</code></pre>
-
             <h2>Features</h2>
             <ul>
                 <li>🛡️ Protect against expensive queries and DoS attacks</li>
                 <li>📊 Multiple complexity estimation strategies</li>
                 <li>🔧 Customizable complexity limits</li>
                 <li>🍓 Strawberry GraphQL integration</li>
-                <li>⚡ Production-ready and battle-tested</li>
             </ul>
         </div>
     </body>
