@@ -1,4 +1,4 @@
 fastapi==0.109.0
 strawberry-graphql==0.291.3
-graphql-complexity==0.4.2
+graphql-complexity==1.0.0
 hypercorn==0.14.4
